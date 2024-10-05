@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted } from "vue";
 import { useAuthStore } from "@/stores/auth.js";
 import { ref } from "vue";
 import Authority1 from "./auth/authority1.vue";
@@ -8,10 +7,6 @@ import Authority3 from "./auth/authority3.vue";
 
 const authStore = useAuthStore();
 const authority = ref(authStore.currentUser.authority);
-
-onMounted(() => {
-  const authStore = useAuthStore();
-});
 </script>
 
 <template>
@@ -20,12 +15,14 @@ onMounted(() => {
       <h3 class="text-lg font-semibold">
         {{ authority }}
         <Authority1 />
+        aaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbb
       </h3>
     </div>
     <div v-if="authority == '2'">
       <h3 class="text-lg font-semibold">
         {{ authority }}
         <Authority2 />
+        aaaaaaaa
       </h3>
     </div>
     <div v-if="authority == '3'">
@@ -36,3 +33,5 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped></style>
