@@ -1,23 +1,38 @@
 <script setup>
+import { onMounted } from "vue";
 import { useAuthStore } from "@/stores/auth.js";
-import { mapActions } from "pinia";
-import authority1 from "@/pages/auth/authority1.vue";
-import authority2 from "@/pages/auth/authority2.vue";
-import { storeToRefs } from "pinia";
+import { ref } from "vue";
+import Authority1 from "./auth/authority1.vue";
+import Authority2 from "./auth/authority2.vue";
+import Authority3 from "./auth/authority3.vue";
 
-const { user } = storeToRefs(authStore);
-console.log(user.value);
 const authStore = useAuthStore();
+const authority = ref(authStore.currentUser.authority);
 
 onMounted(() => {
-  authStore.fetchUser();
+  const authStore = useAuthStore();
 });
 </script>
 
 <template>
   <div class="max-w-xl bg-white shadow-md rounded-lg mx-auto p-4 my-10">
-    <h3 class="text-lg font-semibold">
-      Welcome to your Vue SPA powered by Laravel.aaaa
-    </h3>
+    <div v-if="authority == '1'">
+      <h3 class="text-lg font-semibold">
+        {{ authority }}
+        <Authority1 />
+      </h3>
+    </div>
+    <div v-if="authority == '2'">
+      <h3 class="text-lg font-semibold">
+        {{ authority }}
+        <Authority2 />
+      </h3>
+    </div>
+    <div v-if="authority == '3'">
+      <h3 class="text-lg font-semibold">
+        {{ authority }}
+        <Authority3 />
+      </h3>
+    </div>
   </div>
 </template>
