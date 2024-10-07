@@ -16,3 +16,14 @@ Route::prefix('v1')
     ->group(function () {
         Route::get('/me', MeController::class);
     });
+
+
+Route::get('/test2', [\App\Http\Controllers\TestController::class, 'index']);
+
+
+//これは返ってくる
+Route::get('/test', function (Request $request) {
+    return response()->json([
+        'message' => 'This is a JSON response',
+    ]);
+});
