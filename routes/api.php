@@ -18,6 +18,7 @@ Route::prefix('v1')
     });
 
 
+//返ってくる
 Route::get('/test2', [\App\Http\Controllers\TestController::class, 'index']);
 
 
@@ -27,3 +28,10 @@ Route::get('/test', function (Request $request) {
         'message' => 'This is a JSON response',
     ]);
 });
+
+
+//ポストリクエストのテスト
+Route::post('test3', [\App\Http\Controllers\TestController::class, 'postTest']);
+
+// PUTリクエストで '/test4' にアクセスすると、TestControllerのupdateメソッドが呼び出されます。
+Route::put('/test4', [\App\Http\Controllers\TestController::class, 'update']);
