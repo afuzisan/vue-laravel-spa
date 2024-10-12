@@ -15,7 +15,7 @@ const authority = ref(authStore.currentUser.authority);
       <h3 class="text-lg font-semibold">
         {{ authority }}
         <Authority1 />
-        aaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbっっっっっっっっっっｃ
+        aaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbっっっっっっっっっっｃaaaaaaaaaa
       </h3>
     </div>
     <div v-if="authority == '2'">
